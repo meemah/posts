@@ -10,7 +10,10 @@ class DetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text(postModel.title ?? ""),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(postModel.body ?? ""),
+      ),
     );
   }
 }
