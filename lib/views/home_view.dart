@@ -29,16 +29,24 @@ class HomeView extends StatelessWidget {
                         PostModel postModel =
                             homeVM.allPostResponse.data![index];
                         return Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding:
+                                const EdgeInsets.all(10.0).copyWith(bottom: 20),
                             child: GestureDetector(
                               onTap: (() => Navigator.push(context,
                                       MaterialPageRoute(builder: (ctx) {
                                     return DetailView(postModel: postModel);
                                   }))),
                               child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text("${postModel.id ?? ""}"),
-                                  Text("${postModel.userId ?? ""}")
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                      child: Text("${postModel.title ?? ""}"))
                                 ],
                               ),
                             ));
